@@ -1,0 +1,33 @@
+.search-index {
+  padding: 5px 0 30px;
+}
+
+.search-index h1 {
+  margin-bottom: 15px;
+}
+
+.search-index .results-count {
+  color: #779eb5;
+  font-size: 13px;
+}
+
+.search-index section {
+  margin-top: 35px;
+}
+
+.search-index section a {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.search-index .view-url {
+  color: #779eb5;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.search-index .description {
+  margin-top: 0;
+  width: 550px;
+}

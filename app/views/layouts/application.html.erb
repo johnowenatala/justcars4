@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Justcars</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+  <header class="main-header <%= yield :extra_header_classes %>">
+
+    <section class="top-bar">
+      <div class="container">
+        <a href="/" class="logo">Just Cars</a>
+        <div class="search">
+          <%= form_tag search_path, enforce_utf8: false, method: :get do %>
+            <%= text_field_tag :q, @search_query %>
+            <button type="submit">Buscar</button>
+          <% end %>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner-container">
+      <div class="container">
+        <div class="banner"></div>
+      </div>
+    </section>
+  </header>
+
+
+  <main>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </main>
+
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>JustCars 4 &copy; 2016 - Algunos derechos reservados, otros no.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

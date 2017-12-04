@@ -1,0 +1,20 @@
+<div class="search-index">
+  <h1>Buscar "<small><%= @search_query %></small>"</h1>
+
+
+  <% if @search_results.blank? %>
+    <p class="no-results">No hay resultados. Intente buscar por marca, modelo, año o color.</p>
+  <% else %>
+    <p class="results-count">Hay un total de <%=@search_results.length %> resultados</p>
+    <% @search_results.each do |car| %>
+      <section>
+        <%= link_to car_label(car), car_path(car) %>
+        <p class="view-url"><%= car_url(car) %></p>
+        <p class="description">
+          <%= car.description.try(:truncate, 200) || 'No hay descripción' %>
+        </p>
+      </section>
+    <% end %>
+  <% end %>
+
+</div>

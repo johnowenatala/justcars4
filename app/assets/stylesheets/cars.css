@@ -1,0 +1,399 @@
+.cars {
+  margin: 0 -10px;
+}
+.cars:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+.car {
+  display: block;
+  float: left;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  margin-bottom: 25px;
+  background-size: cover;
+  background-position: 50% 50%;
+  color: #ffffff;
+  position: relative;
+  cursor: zoom-in;
+  box-shadow: 0 0 4px 0 #666;
+}
+.car:hover {
+  box-shadow: 0 0 3px 0 #bb0000;
+}
+
+.car header {
+  background: rgba(0,0,0,0.35);
+  margin: 0;
+  padding: 0;
+}
+.car h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: none;
+}
+.car h1 small {
+  font-size: 16px;
+  font-weight: 400;
+}
+.car .price {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.45);
+  font-size: 29px;
+  text-align: center;
+  padding: 9px 0 6px;
+}
+
+.car footer {
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.car footer a {
+  display: block;
+  width: 100%;
+}
+
+/* dialog */
+.hide {
+  display: none;
+}
+.black-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  cursor: zoom-out;
+}
+.dialog {
+  width: 90%;
+  height: 80%;
+  margin: 5% auto 0;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 1px 8px 0px rgba(0,0,0,0.8);
+  border: 3px solid #ebecec;
+}
+.dialog .full-image {
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.dialog .label a {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.8);
+  font-size: 18px;
+  padding: 17px 15px 15px;
+  text-align: center;
+}
+.dialog .label a:hover {
+  background: rgba(255,255,255,0.95);
+}
+
+/* Cars create or edit */
+
+.cars-form {
+  padding: 20px 0;
+}
+.cars-form h1 {
+  padding-left: 15px;
+}
+
+
+.cars-form section {
+  margin: 18px 0;
+}
+
+
+.cars-form label {
+  float: left;
+  text-align: right;
+  width: 160px;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 20px;
+  padding-top: 4px;
+}
+.cars-form label:after {
+  content: ':';
+}
+
+.cars-form .required label:before {
+  content: '*'
+}
+
+
+.cars-form input[type=text],
+.cars-form input[type=number],
+.cars-form input[type=file],
+.cars-form select,
+.cars-form textarea {
+
+  display: block;
+  box-sizing: border-box;
+  width: 220px;
+  height: 26px;
+  font-size: 13px;
+  font-weight: 200;
+  line-height: 20px;
+  padding: 2px 8px;
+  border: 1px solid #777;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.cars-form section > input[type=text],
+.cars-form section > input[type=number],
+.cars-form section > input[type=file],
+.cars-form section > select,
+.cars-form section > textarea,
+.cars-form section > .input-container,
+.cars-form section > .field_with_errors > input ,
+.cars-form section > .field_with_errors > select ,
+.cars-form section > .field_with_errors > textarea,
+.cars-form .message {
+  margin-left: 180px;
+}
+
+.cars-form section .message {
+  display: block;
+  margin-top: 6px;
+}
+
+.cars-form section > .field_with_errors label,
+.cars-form section.error label {
+  color: #B00100;
+  font-weight: bold;
+}
+.cars-form section.error input,
+.cars-form section.error select {
+  color: #B00100;
+  border-color: #B00100;
+}
+.cars-form section.error .message {
+  color: #B00100;
+}
+
+.cars-form textarea {
+  width: 440px;
+  height: 150px;
+}
+
+.cars-form .price-container .currency {
+  float: left;
+  width: 60px;
+  margin-right: 10px;
+}
+.cars-form .price-container .price {
+  width: 150px;
+}
+
+
+.cars-form .error-message {
+  border: 2px solid #B00100;
+  background: #fbb;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.cars-form .form-actions .btn:hover {
+  text-decoration: none;
+}
+.cars-form .form-actions .btn-api {
+  color: #293847;
+  background-color: #f6f3e4;
+  font-weight: 600;
+}
+
+
+/* view a car */
+
+.full-size-image-background {
+  background-size: cover;
+  background-position: 50% 50%;
+  margin: 30px -120px;
+  padding: 1px;
+}
+@media(max-width: 1300px) {
+  .full-size-image-background {
+    margin-left:  -90px;
+    margin-right: -90px;
+  }
+}
+@media(max-width: 1200px) {
+  .full-size-image-background {
+    margin-left:  -50px;
+    margin-right: -50px;
+  }
+}
+
+@media(max-width: 1100px) {
+  .full-size-image-background {
+    margin-left:  -20px;
+    margin-right: -20px;
+  }
+}
+
+@media(max-width: 1023px) {
+  .full-size-image-background {
+    margin-left:  -70px;
+    margin-right: -70px;
+  }
+}
+
+@media(max-width: 850px) {
+  .full-size-image-background {
+    margin-left:  -20px;
+    margin-right: -20px;
+  }
+}
+
+.full-size-image-background > .container {
+  background: rgba(235,236,236,0.8);
+  min-height: 480px;
+  margin: -30px auto;
+  padding: 10px 0;
+}
+
+.cars-show .container {
+  position: relative;
+}
+
+.cars-show {
+  padding: 20px 0;
+}
+.cars-show dl>dt {
+  display: block;
+  float: left;
+  clear: both;
+  text-align: right;
+  font-weight: 600;
+  width: 150px;
+}
+.cars-show dl>dt:after {
+  content: ':';
+}
+.cars-show dl>dd {
+  display: block;
+  max-width: 300px;
+  margin: 20px 0 20px 170px;
+}
+
+.cars-show dl {
+  margin: 40px 0 0 0;
+  min-height: 200px;
+}
+
+.cars-show h2.more-info {
+  background: #000;
+  color: #fff;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 0;
+}
+.cars-show h2 + dl {
+  margin-top: 20px;
+}
+
+.cars-show .buy-panel {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  width: 350px;
+}
+
+.cars-show .buy-panel .btn-large {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  font-size: 150%;
+}
+
+@media(max-width: 1023px) {
+  .cars-show dl>dd {
+    max-width: 460px;
+  }
+  .cars-show .buy-panel {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+  }
+}
+
+
+.cars-show .related h2 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.cars-show .related .cars-list {
+  background: #151515;
+  margin-top: 0;
+  padding-top: 25px;
+}
+
+.cars-show .related .cars-list {
+  text-align: center;
+}
+
+.cars-show .related .cars-list .related-car {
+  display: inline-block;
+  width: 250px;
+  height: 200px;
+  margin: 20px;
+  position: relative;
+}
+
+.cars-show .related .cars-list .car-bg,
+.cars-show .related .cars-list .car-fg {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.cars-show .related .cars-list .car-bg {
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.cars-show .related .cars-list .car-fg {
+  background: rgba(255,255,255,0.6);
+  transition: background 0.3s ease-in-out;
+}
+.cars-show .related .cars-list .car-fg > span {
+  display: block;
+  position: absolute;
+  bottom: 42%;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.7);
+  padding: 8px 0;
+  transition: all 0.6s ease-in-out;
+}
+.cars-show .related .cars-list .car-fg:hover {
+  background: rgba(255,255,255,0.2);
+}
+.cars-show .related .cars-list .car-fg:hover > span {
+  /*background: rgba(255,255,255,0.8);*/
+  background: rgba(0,0,0,0.8);
+  bottom: 0;
+}

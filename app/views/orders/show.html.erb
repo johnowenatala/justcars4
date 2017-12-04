@@ -1,0 +1,13 @@
+<div class="orders-show">
+
+  <h1>Order registrada</h1>
+
+  <p>Gracias <strong><%=@order.name %></strong> por ingresar tu orden. En los próximos minutos nos contactaremos contigo.</p>
+  <p>Para futuras referencias, tu número de orden es el <strong><%= 45113 + @order.id %></strong>. Guárdala para futuras referencias.</p>
+
+  <div class="order-details">
+    <p><%= l @order.created_at, format: :long %></p>
+    <h3><%= car_label(@order.car) %></h3>
+    <p>Orden número <strong><%= 45113 + @order.id %></strong></p>
+  </div>
+</div>

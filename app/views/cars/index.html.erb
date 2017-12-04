@@ -1,0 +1,37 @@
+<div class="cars">
+  <% if @cars.empty? %>
+    <p>Lo sentimos, de momento no hay autos disponibles</p>
+  <% end %>
+
+  <% @cars.each do |car| %>
+    <%=content_tag 'article',
+                   class: "car #{car.brand_name.parameterize}",
+                   style: "background-image: url(#{car.image_url})",
+                   data: {
+                       image_url: car.image_url(:original),
+                       label: "#{car_full_image_label(car)} (clic para más información)",
+                       show_url: car_path(car),
+                       model_name: car.car_model_name,
+                       year: car.year
+                   } do %>
+      <header>
+        <h1 id="car_<%=car.id%>"><%=car.brand_name%> <%=car.car_model_name %> <small><%=car.year %></small></h1>
+      </header>
+      <div class="price <%=car.currency %>"><%= format_car_currency(car.price, car.currency) %></div>
+      <footer>
+        <%= link_to 'Ver más información', car_path(car) %>
+      </footer>
+    <% end # fin de article %>
+  <% end # fin de each car %>
+</div>
+
+<div id="car-dialog" class="black-bg hide">
+  <div class="dialog">
+    <div class="full-image" style="background-image: url(/system/cars/images/000/original/001-mazda323.jpg)"></div>
+    <header class="label">
+      <a href="/cars/99">
+        Mazda 323 - 2008 - $ 7.650.000
+      </a>
+    </header>
+  </div>
+</div>

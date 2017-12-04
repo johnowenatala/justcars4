@@ -1,0 +1,78 @@
+<div class="cars-show">
+  <h1><%=@car.brand_name%> <%=@car.car_model_name%> <%=@car.year %></h1>
+
+  <section class="full-size-image-background" style="background-image: url(<%= @car.image_url(:original) %>)">
+
+    <div class="container">
+      <dl>
+
+        <dt>Marca</dt>
+        <dd><%= @car.brand_name %></dd>
+
+        <dt>Modelo</dt>
+        <dd><%= @car.car_model_name %></dd>
+
+        <dt>Año</dt>
+        <dd><%= @car.year %></dd>
+
+        <dt>Precio</dt>
+        <dd><%= format_car_currency(@car.price, @car.currency) %></dd>
+
+        <% if @car.color.present? %>
+          <dt>Color</dt>
+          <dd><%= @car.color %></dd>
+        <% end %>
+
+        <% if @car.fuel.present? %>
+          <dt>Combustible</dt>
+          <dd><%= @car.fuel %></dd>
+        <% end %>
+
+        <% if @car.description.present? %>
+          <dt>Descripción</dt>
+          <dd><%= @car.description %></dd>
+        <% end %>
+
+        <dt>Disponibilidad</dt>
+        <dd data-quantity="<%=@car.quantity%>"><%= @car.quantity > 0 ? 'Inmediata' : 'Próximamente' %></dd>
+
+      </dl>
+
+      <% if @more_info.present? %>
+        <h2 class="more-info">Más información</h2>
+
+        <dl>
+          <% @more_info.each do |name, value| %>
+            <dt><%= name  %></dt>
+            <dd><%= value %></dd>
+          <% end %>
+        </dl>
+      <% end %>
+
+      <% if @car.quantity > 0 %>
+        <div class="buy-panel">
+
+          <%=link_to 'Ordene ya!', new_order_path(car: @car.id), class: 'btn btn-large' %>
+
+        </div>
+      <% end %>
+
+    </div>
+
+  </section>
+
+  <section class="related">
+    <h2>Recomendamos ver también</h2>
+    <div class="cars-list">
+      <% @related.each do |related_car| %>
+        <div class="related-car">
+          <div class="car-bg" style="background-image: url(<%=related_car.image_url %>)"></div>
+          <%= link_to car_path(related_car), class: 'car-fg' do %>
+            <span><%= car_full_image_label(related_car) %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+</div>

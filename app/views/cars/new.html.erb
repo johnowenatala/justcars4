@@ -1,0 +1,87 @@
+<% content_for(:extra_header_classes, 'small') %>
+<section class="cars-form cars-new">
+  <h1>Crear nuevo auto</h1>
+  <%= form_for @car,  html: {class: 'new-car'} do |f| %>
+
+    <% if @car.errors.present? %>
+      <div class="error-message">
+        <h4>Errores impiden guardar: </h4>
+        <ul>
+          <% @car.errors.full_messages.each do |full_message| %>
+            <li><%=full_message%></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <section class="required">
+      <label for="car_brand">Marca</label>
+      <%= content_tag 'select', id: 'car_brand', class: 'car-brand' do %>
+        <option value="">Seleccione una marca</option>
+        <% Brand.all.each do |brand| %>
+          <%= content_tag 'option', brand.name, {value: brand.id, data: {
+              models_options: "#{options_from_collection_for_select(brand.models, :id, :name)}"
+          }}.merge(
+              @car.brand_id == brand.id ? {selected: 'selected'} : {}
+          ) %>
+        <% end %>
+      <% end %>
+    </section>
+
+    <section class="required">
+      <%= f.label :model, 'Modelo' %>
+      <%= f.select :model_id, [], {include_blank: 'Seleccione una marca primero'}, class: 'car-model', data: {
+          no_models: "#{content_tag('option','Seleccione una marca primero', value: '')}"
+      } %>
+    </section>
+
+    <section class="required">
+      <%= f.label(:year, 'Año') %>
+      <%= f.text_field(:year, type: :number, class: 'car-year') %>
+    </section>
+
+    <section class="required">
+      <%= f.label(:price, 'Precio') %>
+      <div class="price-container input-container">
+        <%= f.select(:currency, currencies_list, {}, class: 'currency car-currency') %>
+        <%= f.text_field(:price, type: :number, class: 'price car-price') %>
+      </div>
+    </section>
+
+
+    <section class="required">
+      <%= f.label(:quantity, 'Cantidad') %>
+      <%= f.text_field(:quantity, type: :number, class: 'car-quantity') %>
+    </section>
+
+    <section class="required">
+      <%= f.label(:image, 'Imagen') %>
+      <%= f.file_field(:image, accept: 'image/png,image/jpeg', class: 'car-image') %>
+    </section>
+
+    <section>
+      <%= f.label(:color, 'Color') %>
+      <%= f.text_field(:color, class: 'car-color') %>
+    </section>
+
+    <section>
+      <%= f.label(:fuel, 'Combustible') %>
+      <%= f.select(:fuel, ['Bencina', 'Diesel'], { include_blank: true }, class: 'car-fuel') %>
+    </section>
+
+    <section>
+      <%= f.label(:description, 'Descripción') %>
+      <%= f.text_area(:description, class: 'car-description') %>
+    </section>
+
+
+    <div class="form-actions">
+      <%= f.submit 'Guardar', class: 'btn' %>
+      <%= button_tag 'Guardar vía API', name: nil,  type: 'button', class: 'btn btn-api', data: {
+        create_url: api_v1_api_v1_create_car_path
+      } %>
+      <%= link_to 'Cancelar', cars_path, class: 'btn' %>
+    </div>
+
+  <% end %>
+</section>

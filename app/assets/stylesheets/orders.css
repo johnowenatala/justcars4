@@ -1,0 +1,99 @@
+.orders-new {
+
+}
+
+.orders-form .form-field {
+  margin: 18px 0;
+}
+
+.orders-form label {
+  float: left;
+  text-align: right;
+  width: 240px;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 20px;
+  padding-top: 4px;
+}
+.orders-form label:after {
+  content: ':';
+}
+
+.orders-form .required label:before {
+  content: '*'
+}
+
+
+.orders-form input[type=text],
+.orders-form input[type=number],
+.orders-form input[type=email],
+.orders-form input[type=file],
+.orders-form select,
+.orders-form textarea {
+
+  display: block;
+  box-sizing: border-box;
+  width: 200px;
+  height: 26px;
+  font-size: 13px;
+  font-weight: 200;
+  line-height: 20px;
+  padding: 2px 8px;
+  border: 1px solid #777;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.orders-form .form-field > input[type=text],
+.orders-form .form-field > input[type=number],
+.orders-form .form-field > input[type=email],
+.orders-form .form-field > input[type=file],
+.orders-form .form-field > select,
+.orders-form .form-field > textarea,
+.orders-form .form-field > .input-container,
+.orders-form .form-field > .field_with_errors > input ,
+.orders-form .form-field > .field_with_errors > select ,
+.orders-form .form-field > .field_with_errors > textarea,
+.orders-form .message {
+
+  margin-left: 260px;
+}
+
+.orders-form .form-field input[disabled] {
+  background: #ccc;
+}
+
+.orders-form .form-field.error label {
+  color: #B00100;
+  font-weight: bold;
+}
+.orders-form .error-message {
+  border: 2px solid #B00100;
+  background: #fbb;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+.orders-form .form-field.error input,
+.orders-form section.error select {
+  color: #B00100;
+  border-color: #B00100;
+}
+.orders-form .form-field.error .message {
+  color: #B00100;
+}
+.orders-form .form-field .error-only {
+  display: none;
+}
+.orders-form .form-field.error .error-only {
+  display: block;
+}
+
+.orders-show {
+  padding-bottom: 40px;
+}
+.orders-show .order-details {
+  margin-left: 40px;
+  border-left: 5px solid #293847;
+  padding-left: 20px;
+}
+

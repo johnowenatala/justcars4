@@ -1,0 +1,45 @@
+<section class="orders-form orders-new">
+  <h1><%=car_label(@order.car)%></h1>
+  <%= form_for @order,  html: {class: 'new-order'} do |f| %>
+
+    <p>Déjanos tus datos y un ejecutivo se contactará contigo en los próximos minutos</p>
+    <% if @order.errors.present? %>
+      <p class="error-message">Ha ocurrido un error que impide continuar. Por favor reinténtalo en un rato más.</p>
+    <% end %>
+
+    <div class="form-field">
+      <label for="car">Auto</label>
+      <input id="car" type="text" value="<%=@order.car.brand_name%> <%=@order.car.car_model_name%>" readonly disabled />
+      <%= f.hidden_field :car_id %>
+    </div>
+
+    <div class="form-field">
+      <label for="price">Valor</label>
+      <input id="price" type="text" value="<%=format_car_currency(@order.car.price, @order.car.currency)%>" readonly disabled />
+    </div>
+
+    <div class="form-field required order-name">
+      <%= f.label :name, 'Tu nombre y apellido' %>
+      <%= f.text_field :name %>
+      <span class="message error-only">Por favor ingresa tu nombre para poder contactarte.</span>
+    </div>
+
+    <div class="form-field required order-email">
+      <%= f.label :email, 'Correo de contacto' %>
+      <%= f.text_field :email, type: :email, placeholder: 'tu_correo@ejemplo.com' %>
+      <span class="message error-only">Por favor ingresa tu correo para poder contactarte.</span>
+    </div>
+
+    <div class="form-field">
+      <%= f.label(:phone, 'Tu teléfono') %>
+      <%= f.text_field(:phone, class: 'order-phone', placeholder: '56 9 1234 5678') %>
+      <span class="message">Ingresa tu teléfono y un ejecutivo te llamará en los próximos minutos</span>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit 'Enviar', class: 'btn' %>
+      <%= link_to 'Cancelar', cars_path, class: 'btn' %>
+    </div>
+
+  <% end %>
+</section>
